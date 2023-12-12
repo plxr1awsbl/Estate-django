@@ -1,0 +1,66 @@
+{% extends "main/base.html" %}
+
+{%load static%}
+
+{% block title %}Catalog{%endblock title %}
+
+{% block content %}
+<main class="main">
+    <section class="catalog__intro">
+        <div class="container">
+
+            <h1 class="home__title">Гарантированный доход с ваших вложений</h1>
+
+
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input type="radio" id="all" name="propertyType" value="all" checked>
+                    <label for="all">Все</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="villas" name="propertyType" value="villas">
+                    <label for="villas">Виллы</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="apartments" name="propertyType" value="apartments">
+                    <label for="apartments">Апартаменты</label>
+                </div>
+            </div>
+            
+            <div class="row">
+                <form class="home__form">
+                    <fieldset>
+                        <input type="text" class="col-12 col-md-3 home__form-field" placeholder="Имя:">
+                        <input type="text" class="col-12 col-md-4 home__form-field" placeholder="Телефон:">
+                        <button type="submit" class="col-12 col-md-3 home__form-submit">Заказать звонок</button>
+                    </fieldset>
+                </form>
+            </div>
+
+            
+            
+        </div>
+    </section>
+
+  <section class="catalog__section">
+    <div class="container">
+
+        <H3 class="section__title">Каталог</H3>
+
+        <div class="property-catalog row row-cols-1 row-cols-md-3">
+            <div class="col">
+                <img src="{% static "images/sample.jpeg" %}" class="card-property-picture">
+                <H6 class="card-property__name">Property name</H6>
+                <H7 class="card-property__info-unit">Location</H7>
+                <div class="card-property__info">
+                    <div class="card-property__info-unit">Bedrooms: 3</div>
+                    <div class="card-property__info-unit">Floors: 3</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+  </section>
+
+</main>
+{% endblock content %}
