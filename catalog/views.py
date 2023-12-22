@@ -1,13 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Property
 
 # Create your views here.
 def catalog(request):
     
-    properties = Property.objects.all().prefetch_related('images')
+    properties = Property.objects.all()
     
-    return render(request, 'catalog/catalog.html', context={'properties': properties})
+    return render(request, 'catalog/catalog.html', context={'properties' : properties})
 
 def propert(request, prop_slug):
     
-    return render(request, 'catalog/details.html')
+    prop = get_object_or_404(Property, slug=prop_slug)
+    image_list = prop.images.all()
+    
+    return render(request, 'catalog/details.html', context={'property' : prop, 'images' : image_list})
