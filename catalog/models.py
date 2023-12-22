@@ -33,6 +33,7 @@ class Property(models.Model):
 class PropertyImage(models.Model):
     prop = models.ForeignKey(Property, related_name='images', on_delete=models.CASCADE)
     image = models.ImageField()
+    description = models.CharField(max_length=15, null=True, blank=True)
     
     @property
     def imageURL(self):
