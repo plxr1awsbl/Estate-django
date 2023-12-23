@@ -13,4 +13,4 @@ def propert(request, prop_slug):
     prop = get_object_or_404(Property, slug=prop_slug)
     image_list = prop.images.all()
     
-    return render(request, 'catalog/details.html', context={'property' : prop, 'images' : image_list})
+    return render(request, 'catalog/single-property.html', context={'property' : prop, 'images' : image_list})
