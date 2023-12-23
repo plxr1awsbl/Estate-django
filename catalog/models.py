@@ -5,6 +5,13 @@ from django.urls import reverse
 # Create your models here.
 class Property(models.Model):
 
+    VILLA = "VL"
+    APPARTMENT = "AP"
+    HOUSE_TYPE_CHOICES = (
+        (VILLA, "Villa"),
+        (APPARTMENT, "Appartment")
+    )
+
     identifier = models.UUIDField(primary_key=True, default=uuid.uuid4)
     
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
@@ -20,6 +27,7 @@ class Property(models.Model):
     description = models.TextField(null=True, blank=True)
     project = models.CharField(max_length=20, help_text="Project that owns the property", default=None, null=True)
     
+    house_type = models.CharField(max_length=2, choices=HOUSE_TYPE_CHOICES, default=VILLA)
     
     class Meta:
         verbose_name = "Property"
