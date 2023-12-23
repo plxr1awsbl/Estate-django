@@ -18,6 +18,8 @@ class Property(models.Model):
     bathrooms = models.PositiveSmallIntegerField(default=2)
     
     description = models.TextField(null=True, blank=True)
+    project = models.CharField(max_length=20, help_text="Project that owns the property", default=None, null=True)
+    
     
     class Meta:
         verbose_name = "Property"
@@ -42,3 +44,8 @@ class PropertyImage(models.Model):
         except:
             url = ''
         return url
+     
+        
+class PropertyBenefit(models.Model):
+    title = models.CharField(max_length=20)
+    prop = models.ForeignKey(Property, related_name='benefits', on_delete=models.CASCADE)
