@@ -3,8 +3,19 @@
 
 {% block content %}
 
+    <div class="page-heading header-text">
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <span class="breadcrumb"><a href="{% url "catalog" %}">Catalog</a>  /  </span>
+                <h3>{{property.name}}</h3>
+            </div>
+        </div>
+        </div>
+    </div>
+
     <div class="single-property section">
-        <div class="container-xl">
+        <div class="container-xxl">
             <div class="row">
                 <div class="col-12 col-md-8">
                     <div class="main-image">
