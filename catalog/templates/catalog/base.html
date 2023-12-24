@@ -77,17 +77,15 @@ https://templatemo.com/tm-591-villa-agency
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="/" class="logo">
+                    <a href="{% url "catalog" %}" class="logo">
                         <h1>LIGHTHOUSE</h1>
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="{% url 'home'%}" class="nav-link">Home</a></li>
-                      <li><a href="{% url "catalog" %}" class="nav-link">Catalog</a></li>
-                      <li><a href="{% url "contacts" %}" class="nav-link">Contact Us</a></li>
-                      {% comment %} <li><a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a></li> {% endcomment %}
-                  </ul>   
+                       <li><a href="/" class="nav-link">Catalog</a></li>
+                        <li><a href="{% url "contacts" %}" class="nav-link">Contact Us</a></li>
+                    </ul> 
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
