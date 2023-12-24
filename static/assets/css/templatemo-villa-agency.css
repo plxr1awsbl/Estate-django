@@ -1500,6 +1500,10 @@ Single Page Style
   border-bottom: 1px solid #eee;
 }
 
+.benefits {
+  margin-top: 40px
+}
+
 .single-property .main-content span.category {
   background-color: #fbd9cf;
   font-weight: 500;

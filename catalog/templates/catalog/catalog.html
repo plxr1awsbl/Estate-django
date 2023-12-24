@@ -2,6 +2,7 @@
 {%load static%}
 
 {% block content %}
+<<<<<<< Updated upstream
 
   <div class="page-heading header-text">
     <div class="container">
@@ -37,11 +38,87 @@
             </ul>
             <div class="main-button">
               <a href="property-details.html">Look closely</a>
+=======
+    <div class="page-heading header-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Catalog</h3>
+                </div>
+>>>>>>> Stashed changes
             </div>
-          </div>
         </div>
-        {% endfor %}
+    </div>
+
+    <div class="section properties">
+        <div class="container">
+
+            <ul class="properties-filter">
+                <li>
+                    <a class="is_active" href="#!" data-filter="*">Show All</a>
+                </li>
+                <li>
+                    <a href="#!" data-filter=".adv">Apartment</a>
+                </li>
+                <li>
+                    <a href="#!" data-filter=".str">Villa House</a>
+                </li>
+            </ul>
+
+          <div class="row properties-box">
+              {% for property in properties %}
+                  {% if property.house_type != 'VL' %}
+                      <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 adv">
+                          <div class="item">
+                              <a href="{{ property.get_absolute_url }}"><img src="{{property.main_photo.url}}" alt=""></a>
+                              <span class="category">Luxury Villa</span>
+                              {% if property.price != None %}
+                                  <h6>${{property.price}}</h6>
+                              {% else %}
+                                  <h6>Price by request</h6>
+                              {% endif %}
+                              <h4><a href="{{ property.get_absolute_url }}">{{property.name}}</a></h4>
+                              <ul>
+                                  <li>Bedrooms: <span>{{property.bedrooms}}</span></li>
+                                  <li>Bathrooms: <span>{{property.bathrooms}}</span></li>
+                                  {% if property.sq_mt != None %}
+                                      <li>Area: <span>{{property.sq_mt}}m2</span></li>
+                                  {% endif %}
+                                  <li>Floor: <span>{{property.floors}}</span></li>
+                              </ul>
+                              <div class="main-button">
+                                <a href="{{ property.get_absolute_url }}">Schedule a visit</a>
+                              </div>
+                          </div>
+                      </div>
+                  {% else %}
+                      <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 str">
+                          <div class="item">
+                              <a href="{{ property.get_absolute_url }}"><img src="{{property.main_photo.url}}" alt=""></a>
+                              <span class="category">Luxury Villa</span>
+                                  {% if property.price != None %}
+                                      <h6>${{property.price}}</h6>
+                                  {% else %}
+                                      <h6>Price by request</h6>
+                                  {% endif %}
+                                  <h4><a href="{{ property.get_absolute_url }}">{{property.name}}</a></h4>
+                                  <ul>
+                                      <li>Bedrooms: <span>{{property.bedrooms}}</span></li>
+                                      <li>Bathrooms: <span>{{property.bathrooms}}</span></li>
+                                      {% if property.sq_mt != None %}
+                                          <li>Area: <span>{{property.sq_mt}}m2</span></li>
+                                      {% endif %}
+                                      <li>Floor: <span>{{property.floors}}</span></li>
+                                  </ul>
+                                  <div class="main-button">
+                                      <a href="{{ property.get_absolute_url }}">Schedule a visit</a>
+                                  </div>
+                            </div>
+                        </div>
+                  {% endif %}
+            
+              {% endfor %}
+          </div>
       </div>
     </div>
-  </div>
-  {% endblock content %}
+{% endblock content %}
